@@ -30,9 +30,6 @@ def get_horoscope(sign=None):
         "aquarius": 11,
         "pisces": 12
     }
-    if sign == None:
-        print("Usage:\n ./get_horoscope.py <astrological sign>")
-        return
     s = signs.get(sign.lower())
     url = "https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={}".format(str(s))
     response = requests.get(url)
@@ -43,4 +40,7 @@ def get_horoscope(sign=None):
 
 
 if __name__ == "__main__":
-    get_horoscope(argv[1])
+    if len(argv) < 2:
+        print("Usage:\n ./get_horoscope.py <astrological sign>")
+    else:
+        get_horoscope(argv[1])
