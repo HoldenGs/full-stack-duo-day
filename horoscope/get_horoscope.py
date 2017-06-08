@@ -30,7 +30,10 @@ def get_horoscope(sign=None):
         "aquarius": 11,
         "pisces": 12
     }
-    s = signs.get(sign.lower())
+    s = signs.get(sign.lower(), None)
+    if s is None:
+        print("That's not an astrological sign!\nAvailable Signs:\nAries\nTaurus\nGemini\nCancer\nLeo\nVirgo\nLibra\nScorpio\nSagitarrius\nCapricorn\nAquarius\nPisces")
+        return
     url = "https://www.horoscope.com/us/horoscopes/general/horoscope-general-daily-today.aspx?sign={}".format(str(s))
     response = requests.get(url)
     tree = html.fromstring(response.content)
