@@ -43,3 +43,7 @@ body {
 .yelp-other-links {
     margin-top: 15px;
 }
+
+.yelp-btn {
+    background-color: red;
+}
