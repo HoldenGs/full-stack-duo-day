@@ -1,9 +1,33 @@
+
 body {
     background-image: url(https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_large_assets/7822ae13199f/assets/img/home/hero_photos/9pnLHoZnwY067nbjHNPnfQ.jpg);
 }
 
 .yelp-nav {
     top: 50px;
+}
+
+.col-sm-1 {
+    padding: 0;
+}
+
+#review {
+    margin-right: 15px;
+}
+
+#sign-up {
+    margin-top: -5px;
+    margin-left: -20px;
+    padding: 5px 0 5px 0;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.row {
+    color: white;
+    font-weight: bold;
+    margin-top: 40px;
 }
 
 .yelp-center-logo {
