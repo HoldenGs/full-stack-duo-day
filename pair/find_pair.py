@@ -16,13 +16,23 @@ def find_pair(array=[]):
         return "No array found"
     if len(array[0]) == 3:
         dimensions = 3
-    distance = ((array[0][0] - array[1][0])**2 +
-                (array[0][1] - array[1][1])**2)**0.5
+    if dimensions == 3:
+            distance = ((array[0][0] - array[1][0])**2 +
+                        (array[0][1] - array[1][1])**2 +
+                        (array[0][2] - array[1][2])**2)**0.5
+    else:
+        distance = ((array[0][0] - array[1][0])**2 +
+                    (array[0][1] - array[1][1])**2)**0.5
     closest_pair = ((0, 1), distance)
     for i1, point_1 in enumerate(array):
         for i2, point_2 in enumerate(array):
-            new_distance = ((point_1[0] - point_2[0])**2 +
-                        (point_1[1] - point_2[1])**2)**0.5
+            if dimensions  == 3:
+                new_distance = ((point_1[0] - point_2[0])**2 +
+                                (point_1[1] - point_2[1])**2 +
+                                (point_1[2] - point_2[2])**2)**0.5
+            else:
+                new_distance = ((point_1[0] - point_2[0])**2 +
+                                (point_1[1] - point_2[1])**2)**0.5
             if new_distance < closest_pair[1] and i1 != i2:
                 closest_pair = ((i1, i2), new_distance)
     return closest_pair
