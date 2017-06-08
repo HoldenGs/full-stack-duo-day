@@ -25,7 +25,9 @@ def find_pair(array=[]):
                     (array[0][1] - array[1][1])**2)**0.5
     closest_pair = ((0, 1), distance)
     for i1, point_1 in enumerate(array):
-        for i2, point_2 in enumerate(array):
+        i2 = i1 + 1
+        while i2 < len(array):
+            point_2 = array[i2]
             if dimensions  == 3:
                 new_distance = ((point_1[0] - point_2[0])**2 +
                                 (point_1[1] - point_2[1])**2 +
@@ -35,6 +37,7 @@ def find_pair(array=[]):
                                 (point_1[1] - point_2[1])**2)**0.5
             if new_distance < closest_pair[1] and i1 != i2:
                 closest_pair = ((i1, i2), new_distance)
+            i2 += 1
     return closest_pair
 
 
